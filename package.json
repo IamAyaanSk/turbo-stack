@@ -1,5 +1,5 @@
 {
-  "name": "just-startup",
+  "name": "turbo-stack",
   "private": true,
   "scripts": {
     "build": "turbo run build",
