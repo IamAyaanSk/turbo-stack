@@ -1,15 +1,15 @@
-import { useUsersQuery } from "@repo/api-client/v1/users/hooks";
-import { Text, View, StyleSheet } from "react-native";
+import { useUsersQuery } from '@repo/api-client/v1/users/hooks'
+import { Text, View, StyleSheet } from 'react-native'
 
 export default function Index() {
-  const { data, isError } = useUsersQuery();
+  const { data, isError } = useUsersQuery()
 
   if (isError || !data?.success) {
     return (
       <View style={styles.container}>
         <Text>Something went wrong!</Text>
       </View>
-    );
+    )
   }
 
   return (
@@ -21,13 +21,13 @@ export default function Index() {
       ))}
       <Text></Text>
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+    alignItems: 'center',
+    justifyContent: 'center'
+  }
+})

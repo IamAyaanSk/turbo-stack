@@ -1,16 +1,20 @@
-import { usersQueryOptions, useUsersQuery } from "@repo/api-client/v1/users/hooks";
-import { createFileRoute } from "@tanstack/react-router";
+import {
+  usersQueryOptions,
+  useUsersQuery
+} from '@repo/api-client/v1/users/hooks'
+import { createFileRoute } from '@tanstack/react-router'
 
-export const Route = createFileRoute("/users")({
-  loader: ({ context: { queryClient } }) => queryClient.ensureQueryData(usersQueryOptions()),
-  component: RouteComponent,
-});
+export const Route = createFileRoute('/users')({
+  loader: ({ context: { queryClient } }) =>
+    queryClient.ensureQueryData(usersQueryOptions()),
+  component: RouteComponent
+})
 
 function RouteComponent() {
-  const { data, isError } = useUsersQuery();
+  const { data, isError } = useUsersQuery()
 
   if (isError || !data?.success) {
-    return <h1>Something went wrong!</h1>;
+    return <h1>Something went wrong!</h1>
   }
 
   return (
@@ -22,5 +26,5 @@ function RouteComponent() {
         </p>
       ))}
     </div>
-  );
+  )
 }
